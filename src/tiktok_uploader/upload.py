@@ -180,12 +180,18 @@ def complete_upload_form(driver, path: str, description: str, schedule: datetime
     _go_to_upload(driver)
     #  _remove_cookies_window(driver)
     _set_video(driver, path=path, **kwargs)
-    _remove_split_window(driver)
+    print("done1")
+    #_remove_split_window(driver)
+    print("done2")
     _set_interactivity(driver, **kwargs)
+    print("done3")
     _set_description(driver, description)
+    print("done4")
     if schedule:
         _set_schedule_video(driver, schedule)
+    print("done5")
     _post_video(driver)
+    print("done6")
 
 
 def _go_to_upload(driver) -> None:
@@ -343,21 +349,24 @@ def _set_video(driver, path: str = '', num_retries: int = 3, **kwargs) -> None:
                 (By.XPATH, config['selectors']['upload']['upload_finished'])
                 )
 
+            print("one")
             WebDriverWait(driver, config['explicit_wait']).until(upload_finished)
-
+            print("two")
             # waits for the video to upload
             upload_confirmation = EC.presence_of_element_located(
                 (By.XPATH, config['selectors']['upload']['upload_confirmation'])
                 )
-
+            print("three")
             # An exception throw here means the video failed to upload an a retry is needed
             WebDriverWait(driver, config['explicit_wait']).until(upload_confirmation)
-
+            print("four")
             # wait until a non-draggable image is found
             process_confirmation = EC.presence_of_element_located(
                 (By.XPATH, config['selectors']['upload']['process_confirmation'])
                 )
-            WebDriverWait(driver, config['explicit_wait']).until(process_confirmation)
+            print("five")
+            #WebDriverWait(driver, config['explicit_wait']).until(process_confirmation)
+            print("six")
             return
         except Exception as exception:
             print(exception)
