@@ -6,9 +6,12 @@ import upload
 
 FILENAME = "upload.mp4"
 
+myList = ["cookies.txt", "cookies2.txt"]
+
 if __name__ == "__main__":
 
     # upload video to TikTok
-    upload.upload_video(FILENAME,
-                 description="This is a video I just downloaded",
-                 cookies="cookies.txt")
+    for cookieFile in myList:
+        upload.upload_video(FILENAME,
+                    description="This is a video I just downloaded",
+                    cookies=cookieFile)
