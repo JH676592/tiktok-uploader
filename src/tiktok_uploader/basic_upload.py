@@ -6,7 +6,7 @@ import upload
 
 FILENAME = "upload.mp4"
 
-myList = ["cookies.txt", "cookies2.txt"]
+myList = ["cookies7.txt"]
 
 if __name__ == "__main__":
 
@@ -14,4 +14,4 @@ if __name__ == "__main__":
     for cookieFile in myList:
         upload.upload_video(FILENAME,
                     description="This is a video I just downloaded",
-                    cookies=cookieFile)
+                    cookies="cookies7.txt")
