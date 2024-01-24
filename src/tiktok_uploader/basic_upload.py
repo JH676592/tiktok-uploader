@@ -6,11 +6,11 @@ import upload
 
 FILENAME = "upload.mp4"
 
-myList = ["cookies6.txt"]
+myList = ["cookies8.txt", "cookies7.txt"]
 
 if __name__ == "__main__":
 
     # upload video to TikTok
     for cookieFile in myList:
         upload.upload_video(FILENAME,
-                    description="This is a video I just downloaded", username="justinabond13", password="justinabond@5")
+                    description="This is a video I just downloaded", cookies=cookieFile)
